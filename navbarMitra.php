@@ -185,7 +185,7 @@ ob_end_flush();
         if ($page == 'dashboard')
             include 'dashboard.php';
         if ($page == 'kegiatan')
-            include 'kegiatan.php';
+            include 'kegiatann.php';
         if ($page == 'daftarmitra')
             include 'daftarmitra.php';
         if ($page == 'usulan')

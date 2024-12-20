@@ -81,13 +81,19 @@
                             <td><?= $data['alamat'] ?></td>
                             <td><?= $data['no_tlpn'] ?></td>
                             <td><?= $data['email'] ?></td>
+
                             <td>
                                 <?php if (!empty($data['dokumen'])): ?>
-                                    <a href="<?= $data['dokumen'] ?>" target="_blank" class="btn btn-link">Lihat Dokumen</a>
+                                    <a href="uploads/<?= $data['dokumen'] ?>" target="_blank" class="btn btn-link">Lihat Dokumen</a>
+                                    <!-- Untuk menampilkan gambar jika file foto -->
+                                   
                                 <?php else: ?>
                                     <span class="text-muted">Tidak Ada Dokumen</span>
                                 <?php endif; ?>
                             </td>
+
+
+
 
                             <td
                                 style="color: <?= $tanggal_akhir >= $tanggal_sekarang ? 'green' : 'red'; ?>; font-family:Arial,sans-serif; font-size:14px;">

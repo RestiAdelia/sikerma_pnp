@@ -169,7 +169,7 @@ session_start();
         <h4 class="text-center">Menu</h4>
         <hr class="text-white">
         <a href="navbarJurusan.php?p=dashboard"><i class="fas fa-home"></i> Dashboard</a>
-        <a href="navbarJurusan.php?p=grafik"><i class="fas fa-walking"></i> Kegiatan</a>
+        <a href="navbarJurusan.php?p=kegiatan"><i class="fas fa-walking"></i> Kegiatan</a>
         <a href="navbarJurusan.php?p=pengajuan"><i class="fas fa-file-alt"></i> Usulan Kerjasama</a>
         <a href="navbarJurusan.php?p=crud"><i class=" 	fas fa-clipboard"></i> Data Kerjasama</a>
 
@@ -184,8 +184,8 @@ session_start();
         $page = isset($_GET['p']) ? $_GET['p'] : 'dashboard';
         if ($page == 'dashboard')
             include 'dashboard.php';
-        if ($page == 'grafik')
-            include 'grafik.php';
+        if ($page == 'kegiatan')
+            include 'kegiatann.php';
         if ($page == 'pengajuan')
             include 'pengajuanMitra.php';
         if ($page == 'crud')

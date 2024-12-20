@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
     $jangka_waktu = $_POST['jangka_waktu'];
     $awal_kerjasama = $_POST['awal_kerjasama'];
     $akhir_kerjasama = $_POST['akhir_kerjasama'];
-    $keterangan = $_POST['keterangan'];
+    $keterangan = ''; // Inisialisasi kosong untuk keterangan
     $tindakan = $_POST['tindakan'];
     $provinsi = $_POST['provinsi'];
     $kota = $_POST['kota'];
@@ -22,11 +22,19 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $kegiatan = $_POST['kegiatan'];
 
+    // Logika untuk menentukan status keterangan berdasarkan tanggal akhir_kerjasama
+    $currentDate = date('Y-m-d'); // Ambil tanggal saat ini
+    if ($akhir_kerjasama < $currentDate) {
+        $keterangan = 'expired';
+    } else {
+        $keterangan = 'aktif';
+    }
+
     // Mengambil data file
     $fileName = $_FILES["file"]["name"];
     $fileSize = $_FILES["file"]["size"];
     $fileTemp = $_FILES["file"]["tmp_name"];
-    $fileDir = "upload/";
+    $fileDir = "uploadS/";
     $uploadPath = $fileDir . basename($fileName);
 
     // Pastikan direktori upload ada
@@ -51,6 +59,8 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
+
+<!-- Style dan HTML form tetap sama -->
 
     <style>
         body {
@@ -96,7 +106,10 @@ if (isset($_POST['submit'])) {
                 <input type="text" name="jangka_waktu" placeholder="Jangka Waktu" class="form-control">
                 <input type="date" name="awal_kerjasama" placeholder="Awal Kerjasama" class="form-control">
                 <input type="date" name="akhir_kerjasama" placeholder="Akhir Kerjasama" class="form-control">
-                <textarea name="keterangan" placeholder="Keterangan" class="form-control"></textarea>
+                <select name="keterangan" class="form-select">
+                    <option value="mou">aktif</option>
+                    <option value="moa">expired</option>
+                </select><br>
                 <input type="text" name="tindakan" placeholder="Tindakan" class="form-control">
                 <input type="text" name="provinsi" placeholder="Provinsi" class="form-control">
                 <input type="text" name="kota" placeholder="Kota" class="form-control">
