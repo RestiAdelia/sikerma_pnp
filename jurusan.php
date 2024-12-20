@@ -1,6 +1,11 @@
 <?php
 // Mulai output buffering untuk menunda pengiriman output
 ob_start();
+if (!isset($_SESSION['login']) || $_SESSION['level'] !== 'Staf') {
+    // Jika belum login atau level bukan Staf, alihkan ke halaman login
+    header("Location: login.php");
+    exit;
+}
 
 include 'koneksi.php'; // Koneksi ke database
 

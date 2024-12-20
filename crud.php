@@ -1,10 +1,5 @@
-<html>
 
-<head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-</head>
 
-<body>
     <?php
     include 'koneksi.php';
     // Pastikan $level diambil dari sesi atau basis data
@@ -184,6 +179,6 @@
             break;
     }
     ?>
-</body>
 
-</html>
+
+</>

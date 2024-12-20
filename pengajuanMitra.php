@@ -36,55 +36,105 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
     <style>
-        /* Container Form */
+       <style>
+    /* Reset CSS */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f7fc;
+        color: #333;
+    }
+
+    /* Container Form */
+    .form-container {
+        background-color: white;
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Judul Form */
+    .form-container h2 {
+        font-size: 2rem;
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /* Gaya untuk form-group */
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        font-size: 1rem;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group input[type="file"] {
+        padding: 5px;
+    }
+
+    .form-group textarea {
+        resize: vertical;
+    }
+
+    /* Tombol Submit */
+    .btn-primary {
+        background-color: #ff9f00;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .btn-primary:hover {
+        background-color: #e68a00;
+    }
+
+    /* Notifikasi */
+    .alert {
+        padding: 15px;
+        background-color: #4CAF50;
+        color: white;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .alert-error {
+        background-color: #f44336;
+    }
+
+    /* Responsif */
+    @media (max-width: 768px) {
         .form-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 10px;
-            border-radius: 8px;
+            padding: 20px;
         }
-
-        /* Judul Form */
-        .form-container h2 {
-            font-size: 2 rem;
-            color: #080808;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-
-        /* Gaya untuk formulir horizontal */
-        .form-group-horizontal {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .form-group-horizontal label {
-            flex: 0 0 150px; /* Tetapkan lebar tetap */
-            margin-right: 5px;
-            text-align: left;
-        }
-
-        .form-group-horizontal input,
-        .form-group-horizontal textarea {
-            flex: 1; /* Input menggunakan sisa ruang yang tersedia */
-        }
-
-        /* Tombol Submit */
-        .btn-primary {
-            background-color: rgb(221, 176, 42);
-            border: none;
-        }
-
-        .btn-primary:hover {
-            background-color: rgb(210, 124, 74);
-        }
-
-        /* Ukuran teks kecil */
-        .form-container small {
-            font-size: 0.85rem;
-            color: #a5a5a5;
-        }
+    }
     </style>
 </head>
 
@@ -102,23 +152,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <form action="" method="POST" enctype="multipart/form-data">
             <div class="form-group-horizontal">
                 <label for="nama" class="form-label">Nama Instansi</label>
-                <input type="text" class="form-control" name="nama" placeholder="Masukkan nama instansi Anda" required>
+                <input type="text" class="form-control" name="nama" required>
             </div>
             <div class="form-group-horizontal">
                 <label for="alamat" class="form-label">Alamat</label>
-                <textarea class="form-control" name="alamat" placeholder="Masukkan alamat Anda" required></textarea>
+                <textarea class="form-control" name="alamat"  required></textarea>
             </div>
             <div class="form-group-horizontal">
                 <label for="nama_penandatangan" class="form-label">Nama Penanda Tangan</label>
-                <input type="text" class="form-control" name="nama_penandatangan" placeholder="Masukkan nama penanda tangan" required>
+                <input type="text" class="form-control" name="nama_penandatangan"  required>
             </div>
             <div class="form-group-horizontal">
                 <label for="jabatan" class="form-label">Jabatan</label>
-                <input type="text" class="form-control" name="jabatan" placeholder="Masukkan jabatan" required>
+                <input type="text" class="form-control" name="jabatan" required>
             </div>
             <div class="form-group-horizontal">
                 <label for="nama_kontak" class="form-label">Nama Contact Person</label>
-                <input type="text" class="form-control" name="nama_kontak" placeholder="Masukkan nama contact person" required>
+                <input type="text" class="form-control" name="nama_kontak" required>
             </div>
             <div class="form-group-horizontal">
                 <label for="no_kontak" class="form-label">Nomor Telepon</label>

@@ -1,6 +1,10 @@
 <?php
 include("koneksi.php"); 
-
+if (!isset($_SESSION['login']) || $_SESSION['level'] !== 'Staf') {
+    // Jika belum login atau level bukan Staf, alihkan ke halaman login
+    header("Location: login.php");
+    exit;
+}
 
 // Proses Hapus
 if (isset($_GET['delete'])) {
